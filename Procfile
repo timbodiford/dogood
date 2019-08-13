@@ -1,0 +1,1 @@
+web: gunicorn dogood_project.wsgi --log-file -
