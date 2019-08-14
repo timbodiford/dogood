@@ -23,6 +23,7 @@ class Event(models.Model):
     date = models.DateField
     start_time = models.TimeField
     end_time = models.TimeField
+    # volunteers = models.ManyToManyField('Volunteer', related_name='events')
 
     def __str__(self):
         return self.title
