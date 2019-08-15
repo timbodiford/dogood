@@ -9,7 +9,11 @@ class OrganizationSerializer(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ('id', 'title', 'description', 'location_address', 'location_city', 'location_state', 'location_zip', 'category', 'org_name', 'date', 'start_time', 'end_time')
+        fields = ('id', 'title', 'description', 'location_address', 'location_city', 'location_state', 'location_zip', 'category', 'org_name',
+         'eventDate',
+          'startTime',
+           'endTime'
+           )
 
 class VolunteerSerializer(serializers.ModelSerializer):
     class Meta:

@@ -1,4 +1,8 @@
 from django.db import models
+from datetime import datetime
+from django.utils import timezone
+
+
 
 # Create your models here.
 class Organization(models.Model):
@@ -20,9 +24,9 @@ class Event(models.Model):
     location_zip = models.CharField(max_length=5)
     category = models.CharField(max_length=50)
     org_name = models.ForeignKey(Organization, on_delete=models.CASCADE, related_name='events')
-    date = models.DateField
-    start_time = models.TimeField
-    end_time = models.TimeField
+    eventDate = models.DateField(default=timezone.now)
+    startTime = models.DateTimeField(default=datetime.now)
+    endTime = models.DateTimeField(default=datetime.now)
     # volunteers = models.ManyToManyField('Volunteer', related_name='events')
 
     def __str__(self):
