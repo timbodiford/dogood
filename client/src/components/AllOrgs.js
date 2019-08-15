@@ -14,7 +14,7 @@ export default class AllOrgs extends Component {
     getAllOrgs = () => {
         axios.get('api/v1/organizations/')
         .then((res) => {
-            this.setState({organizations: res.data})
+            this.setState({ organizations: res.data })
         })
     }
 

@@ -18,30 +18,22 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div>
-        <NavBar />
       <Router>
-        <h1>DoGood</h1>
+        <NavBar />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route  path="/organizations/new" component={NewOrgForm} />
-          <Route  path="/organizations/:orgId" component={ViewOrg} />
-          <Route  path="/organizations" component={MainOrg} />
-          <Route  path="/volunteers/new" component={NewVolunteer} />
-          <Route  path="/volunteers/:volId" component={ViewVolunteer} />
-          <Route  path="/volunteers" component={MainVolunteer} />
-          <Route  path="/events/new" component={NewEvent} />
-          <Route  path="/events/:eventId" component={ViewEvent} />
-          <Route  path="/events" component={AllEvents} />
-
-
-
-
-
-
-
+          <Route path="/organizations/new" component={NewOrgForm} />
+          <Route path="/organizations/:orgId" component={ViewOrg} />
+          <Route path="/organizations" component={MainOrg} />
+          <Route path="/volunteers/new" component={NewVolunteer} />
+          <Route path="/volunteers/:volId" component={ViewVolunteer} />
+          <Route path="/volunteers" component={MainVolunteer} />
+          <Route path="/events/new" component={NewEvent} />
+          <Route path="/events/:eventId" component={ViewEvent} />
+          <Route path="/events" component={AllEvents} />
         </Switch>
-      </Router>
         <Footer />
+      </Router>
     </div>
   );
 }
