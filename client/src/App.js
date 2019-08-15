@@ -28,8 +28,8 @@ function App() {
           <Route path="/volunteers/new" component={NewVolunteer} />
           <Route path="/volunteers/:volId" component={ViewVolunteer} />
           <Route path="/volunteers" component={MainVolunteer} />
-          <Route path="/events/new" component={NewEvent} />
           <Route path="/events/:eventId" component={ViewEvent} />
+          <Route path="/events/new" component={NewEvent} />
           <Route path="/events" component={AllEvents} />
         </Switch>
         <Footer />

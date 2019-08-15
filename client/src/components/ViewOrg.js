@@ -8,7 +8,7 @@ export default class ViewOrg extends Component {
 
     state = {
         organization: {
-            // events: []
+            events: []
         }
     }
 
@@ -25,11 +25,12 @@ export default class ViewOrg extends Component {
 
     render() {
 
-        // let eventList = this.state.organization.events.map((event) => {
-        //     return (
-        //         <p>{event.title}</p>
-        //     )
-        // })
+        let eventList = this.state.organization.events.map((event) => {
+            return (
+                <p>{event.title}</p>
+            )
+        })
+
         return (
             <div>
                 <h3>Organization Information</h3>
@@ -40,6 +41,7 @@ export default class ViewOrg extends Component {
                 <Link to="/">
                     <button type="button">Back to Home</button>
                 </Link>
+                {eventList}
 
             </div>
         )
