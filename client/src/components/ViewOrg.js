@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import OrgEvents from './OrgEvents'
 
 
 
@@ -27,7 +28,11 @@ export default class ViewOrg extends Component {
 
         let eventList = this.state.organization.events.map((event) => {
             return (
-                <p>{event.title}</p>
+                <Link to={`/events/${event.id}`}>
+                    <div>
+                        {event.title}
+                    </div>
+                </Link>
             )
         })
 
@@ -41,8 +46,8 @@ export default class ViewOrg extends Component {
                 <Link to="/">
                     <button type="button">Back to Home</button>
                 </Link>
+                {/* <OrgEvents eventList={eventList} /> */}
                 {eventList}
-
             </div>
         )
     }
