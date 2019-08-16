@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom'
+import ViewOrg from './ViewOrg';
 
 export default class NewOrgForm extends Component {
     
@@ -30,7 +31,7 @@ export default class NewOrgForm extends Component {
 
     render() {
         if(this.state.redirectToHome) {
-            return <Redirect to="/organizations" />
+        return <Redirect to={<ViewOrg />} />
         }
         return (
             <div>

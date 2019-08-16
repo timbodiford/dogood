@@ -21,6 +21,7 @@ export default class ViewOrg extends Component {
 
     componentDidMount() {
         this.getOrg()
+        // this.setState({ isNewEventFormDisplayed: false})
     }
 
     getOrg = () => {
@@ -64,10 +65,10 @@ export default class ViewOrg extends Component {
                 <h4> {this.state.organization.contact_person}</h4>
                 <h4>{this.state.organization.contact_phone}</h4>
                 <h4>{this.state.organization.contact_email}</h4>
-                <Link to="/">
-                    <button type="button">Back to Home</button>
+                <Link to="/organizations">
+                    <button type="button">Back to Organizations</button>
                 </Link>
-                <button onClick={this.handleDelete}>Delete Event</button>
+                <button onClick={this.handleDelete}>Delete Organization</button>
 
 
                 {/* <OrgEvents eventList={eventList} /> */}
