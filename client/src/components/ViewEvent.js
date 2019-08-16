@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
+
 
 
 
 export default class ViewEvent extends Component {
 
     state = {
-        event: {}
+        event: {},
+        redirectToHome: false
+
     }
 
     componentDidMount() {
@@ -20,7 +24,16 @@ export default class ViewEvent extends Component {
                 this.setState({ event: res.data })
             })
     }
+    handleDelete = () => {
+        axios.delete(`/api/v1/events/${this.state.event.id}/`)
+            .then(() => {
+                this.setState({ redirectToHome: true })
+            })
+    }
     render() {
+        if (this.state.redirectToHome) {
+            return <Redirect to={`/organizations`} />
+        }
         return (
             <div>
                 <h1>This component should show an individual event</h1>
@@ -29,6 +42,8 @@ export default class ViewEvent extends Component {
                 <Link to="/">
                     <button type="button">Back to Home</button>
                 </Link>
+                <button onClick={this.handleDelete}>Delete Event</button>
+
             </div>
         )
     }

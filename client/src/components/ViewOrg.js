@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import OrgEvents from './OrgEvents'
+import NewEvent from './NewEvent'
+import {Redirect} from 'react-router-dom'
+
 
 
 
@@ -10,7 +13,10 @@ export default class ViewOrg extends Component {
     state = {
         organization: {
             events: []
-        }
+        },
+        isNewEventFormDisplayed: false,
+        redirectToHome: false
+
     }
 
     componentDidMount() {
@@ -23,8 +29,21 @@ export default class ViewOrg extends Component {
                 this.setState({ organization: res.data })
             })
     }
+    handleShowNewForm = (evt) => {
+        this.setState({ isNewEventFormDisplayed: true })
+    }
+
+    handleDelete = () => {
+        axios.delete(`/api/v1/organizations/${this.state.organization.id}/`)
+            .then(() => {
+                this.setState({ redirectToHome: true })
+            })
+    }
 
     render() {
+        if (this.state.redirectToHome) {
+            return <Redirect to={`/organizations`} />
+        }
 
         let eventList = this.state.organization.events.map((event) => {
             return (
@@ -36,6 +55,8 @@ export default class ViewOrg extends Component {
             )
         })
 
+        let org = this.state.organization
+
         return (
             <div>
                 <h3>Organization Information</h3>
@@ -46,8 +67,24 @@ export default class ViewOrg extends Component {
                 <Link to="/">
                     <button type="button">Back to Home</button>
                 </Link>
+                <button onClick={this.handleDelete}>Delete Event</button>
+
+
                 {/* <OrgEvents eventList={eventList} /> */}
+                <h3>This is a list of event for this org</h3>
                 {eventList}
+
+                Adding ternary below here for new event form...
+                {
+                    this.state.isNewEventFormDisplayed
+                        ?
+                        <NewEvent org={org}/>
+
+                        :
+                        <div>
+                            <button onClick={this.handleShowNewForm}>Create an Event</button>
+                        </div>
+                }
             </div>
         )
     }
