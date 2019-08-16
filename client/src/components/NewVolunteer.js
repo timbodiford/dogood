@@ -11,7 +11,7 @@ export default class NewVolunteer extends Component {
             state: '',
             zip_code: '',
             phone: '',
-            events: ''
+            events: []
         },
         redirectToHome: false
     }
@@ -27,6 +27,9 @@ export default class NewVolunteer extends Component {
         axios.post('/api/v1/volunteers/', this.state.newVolunteer)
             .then(() => {
                 this.setState({ redirectToHome: true })
+            })
+            . catch ((err) => {
+                console.log (err)
             })
         }
 
@@ -68,7 +71,7 @@ export default class NewVolunteer extends Component {
                         <input type="text" name="phone" id="phone" onChange={this.handleChange} value={this.state.newVolunteer.phone} />
                     </div>
 
-                    <input type="submit" value="Create" /> 
+                    <input type="submit" value="Create Volunteer" /> 
                 </form>
             </div>
         )

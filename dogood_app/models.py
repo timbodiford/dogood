@@ -39,7 +39,7 @@ class Volunteer(models.Model):
     state = models.CharField(max_length=2)
     zip_code = models.CharField(max_length=5)
     phone = models.CharField(max_length=11)
-    events = models.ManyToManyField('Event', related_name='volunteers')
+    events = models.ManyToManyField('Event', related_name='volunteers', null=True, blank=True)
 
     def __str__(self):
         return self.name
