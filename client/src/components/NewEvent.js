@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import {Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 export default class NewEvent extends Component {
 
@@ -27,20 +27,20 @@ export default class NewEvent extends Component {
     handleSubmit = (evt) => {
         evt.preventDefault()
         axios.post('/api/v1/events/', this.state.newEvent)
-        .then(() => {
-            this.setState({ redirectToHome: true})
-        })
+            .then(() => {
+                this.setState({ redirectToHome: true })
+            })
     }
 
 
     render() {
-        if(this.state.redirectToHome) {
-            return <Redirect to="/organizations/:orgId" />
+        if (this.state.redirectToHome) {
+            return <Redirect to="/" />
         }
         return (
             <div>
-                    <h1>Add A New Event</h1>
-                    <form onSubmit={this.handleSubmit}>
+                <h1>Add A New Event</h1>
+                <form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="title">Name of Event: </label>
                         <input type="text" name="title" id="Title" onChange={this.handleChange} value={this.state.newEvent.title} />

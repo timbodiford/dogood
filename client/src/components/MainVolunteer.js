@@ -28,10 +28,14 @@ export default class MainVolunteer extends Component {
                 <h1>This will be the main volunteer container</h1>
                 {
                     this.state.isNewVolunteerFormDisplayed
-                    ?
-                    <NewVolunteer />
-                    :
-                <AllVolunteers />
+                        ?
+                        <NewVolunteer />
+                        :
+                        <div>
+                            <p>Click here to create a new Volunteer</p>
+                            <button onClick={this.handleShowNewForm}>Create Volunteer</button>
+                            <AllVolunteers />
+                        </div>
                 }
             </div>
         )
