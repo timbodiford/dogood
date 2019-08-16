@@ -7,7 +7,9 @@ import { Redirect } from 'react-router-dom'
 export default class ViewVolunteer extends Component {
 
     state = {
-        volunteer: {}
+        volunteer: {
+            events:[]
+        }
     }
 
     componentDidMount() {
@@ -32,6 +34,14 @@ export default class ViewVolunteer extends Component {
         if (this.state.redirectToHome) {
             return <Redirect to={`/volunteers`} />
         }
+// Do I use this list of event ids in conjunction with another axios call to get the details for each of these ids?
+        let volEventList = this.state.volunteer.events.map((eventId) => {
+            return (
+                    <div>
+                        {eventId}
+                    </div>
+            )
+        })
         return (
             <div>
                 <h1>This component should show a single volunteer</h1>
@@ -41,12 +51,14 @@ export default class ViewVolunteer extends Component {
                 <p>{this.state.volunteer.state}</p>
                 <p>{this.state.volunteer.zip_code}</p>
                 {/* <p>{}</p> */}
-                <Link to="/">
-                    <button type="button">Back to Home</button>
+                <Link to="/volunteers">
+                    <button type="button">Back to Volunteers</button>
                 </Link>
                 <div>
                     <button onClick={this.handleDelete}>Delete This Volunteer</button>
                 </div>
+                <h4>Trying to make events specific to volunteer id show here</h4>
+                {volEventList}
 
             </div>
         )

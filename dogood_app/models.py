@@ -38,7 +38,7 @@ class Volunteer(models.Model):
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=2)
     zip_code = models.CharField(max_length=5)
-    phone = models.CharField(max_length=11)
+    phone = models.CharField(max_length=15)
     events = models.ManyToManyField('Event', related_name='volunteers', null=True, blank=True)
 
     def __str__(self):

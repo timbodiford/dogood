@@ -67,7 +67,7 @@ export default class NewVolunteer extends Component {
                     </div>
 
                     <div>
-                        <label htmlFor="phone">Zip Code: </label>
+                        <label htmlFor="phone">Phone: </label>
                         <input type="text" name="phone" id="phone" onChange={this.handleChange} value={this.state.newVolunteer.phone} />
                     </div>
 
