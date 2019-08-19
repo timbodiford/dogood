@@ -1,7 +1,12 @@
 {
-    "name": "dogood",
-    "scripts": {
-      "build": "cd client && npm install && npm run build && cd ..",
-      "postinstall": "npm run build && echo 'Client built!'"
-    }
+  "name": "dogood",
+  "scripts": {
+    "build": "cd client && npm install && npm run build && cd ..",
+    "postinstall": "npm run build && echo 'Client built!'"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.3.2",
+    "react-responsive-carousel": "^3.1.50",
+    "typeface-roboto": "0.0.75"
   }
+}

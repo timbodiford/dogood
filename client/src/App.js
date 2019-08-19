@@ -14,6 +14,8 @@ import NewEvent from './components/NewEvent';
 import MainOrg from './components/MainOrg';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import 'typeface-roboto';
+
 
 function App() {
   return (
