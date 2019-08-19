@@ -44,9 +44,27 @@ export default class ViewOrg extends Component {
     }
     handleToggleEditForm = () => {
         this.setState((state) => {
-            return { isEditFormDisplayed: !state.isEditFormDisplayed }
+            return { isEditOrgFormDisplayed: !state.isEditOrgFormDisplayed }
         })
     }
+    handleInputEdit = (event) => {
+        const copiedOrganization = { ...this.state.organization }
+        copiedOrganization[event.target.name] = event.target.value
+        this.setState({ organization : copiedOrganization })
+    }
+
+    handleEdit = (event) => {
+        event.preventDefault()
+
+        axios.put(`/api/v1/organizations/${this.state.organization.id}`, this.state.organization)
+            .then((res) => {
+                this.setState({
+                    isEditOrgFormDisplayed: false
+                })
+
+            })
+    }
+ 
 
     render() {
         if (this.state.redirectToHome) {
@@ -70,8 +88,26 @@ export default class ViewOrg extends Component {
                 {
                     this.state.isEditOrgFormDisplayed
                         ?
-                        <EditOrg />
-                        :
+                        <form onSubmit={this.handleEdit}>
+                        <div>
+                            <label htmlFor="org-name">Name of Organization: </label>
+                            <input type="text" name="org_name" id="org-name" onChange={this.handleInputEdit} value={this.state.organization.org_name} />
+                        </div>
+                        <div>
+                            <label htmlFor="contact-person">Contact Name: </label>
+                            <input type="text" name="contact_person" id="contact-person" onChange={this.handleInputEdit} value={this.state.organization.contact_person} />
+                        </div>
+                        <div>
+                            <label htmlFor="contact-phone">Phone #: </label>
+                            <input type="text" name="contact_phone" id="contact-phone" onChange={this.handleInputEdit} value={this.state.organization.contact_phone} />
+                        </div>
+                        <div>
+                            <label htmlFor="contact-email">Email Address: </label>
+                            <input type="text" name="contact_email" id="contact-email" onChange={this.handleInputEdit} value={this.state.organization.contact_email} />
+                        </div>
+    
+                        <input type="submit" value="Save Changes" />
+                    </form>                        :
                         <div>
                             <h3>Organization Information</h3>
                             <h4>{this.state.organization.org_name}</h4>
