@@ -13,7 +13,7 @@ export default class NavBar extends Component {
 
             <div className='nav'>
 
-                <h1 className="sitename">DO GOOD</h1>
+                <a href='/' className="sitename">DO GOOD</a>
                 <div >
                     <div className="nav-wrapper" >
                         <div className='nav-buttons'>

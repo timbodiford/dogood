@@ -3,7 +3,8 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import OrgEvents from './OrgEvents'
 import NewEvent from './NewEvent'
-import {Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
+import EditOrg from './EditOrg';
 
 
 
@@ -15,6 +16,7 @@ export default class ViewOrg extends Component {
             events: []
         },
         isNewEventFormDisplayed: false,
+        isEditOrgFormDisplayed: false,
         redirectToHome: false
 
     }
@@ -40,6 +42,11 @@ export default class ViewOrg extends Component {
                 this.setState({ redirectToHome: true })
             })
     }
+    handleToggleEditForm = () => {
+        this.setState((state) => {
+            return { isEditFormDisplayed: !state.isEditFormDisplayed }
+        })
+    }
 
     render() {
         if (this.state.redirectToHome) {
@@ -60,18 +67,25 @@ export default class ViewOrg extends Component {
 
         return (
             <div>
-                <h3>Organization Information</h3>
-                <h4>{this.state.organization.org_name}</h4>
-                <h4> {this.state.organization.contact_person}</h4>
-                <h4>{this.state.organization.contact_phone}</h4>
-                <h4>{this.state.organization.contact_email}</h4>
-                <Link to="/organizations">
-                    <button type="button">Back to Organizations</button>
-                </Link>
-                <button onClick={this.handleDelete}>Delete Organization</button>
+                {
+                    this.state.isEditOrgFormDisplayed
+                        ?
+                        <EditOrg />
+                        :
+                        <div>
+                            <h3>Organization Information</h3>
+                            <h4>{this.state.organization.org_name}</h4>
+                            <h4> {this.state.organization.contact_person}</h4>
+                            <h4>{this.state.organization.contact_phone}</h4>
+                            <h4>{this.state.organization.contact_email}</h4>
+                            <Link to="/organizations">
+                                <button type="button">Back to Organizations</button>
+                            </Link>
+                            <button onClick={this.handleDelete}>Delete Organization</button>
 
+                        </div>
+                }
 
-                {/* <OrgEvents eventList={eventList} /> */}
                 <h3>This is a list of event for this org</h3>
                 {eventList}
 
@@ -79,7 +93,7 @@ export default class ViewOrg extends Component {
                 {
                     this.state.isNewEventFormDisplayed
                         ?
-                        <NewEvent org={org}/>
+                        <NewEvent org={org} />
 
                         :
                         <div>

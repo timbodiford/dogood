@@ -13,26 +13,28 @@ export default class AllOrgs extends Component {
 
     getAllOrgs = () => {
         axios.get('api/v1/organizations/')
-        .then((res) => {
-            this.setState({ organizations: res.data })
-        })
+            .then((res) => {
+                this.setState({ organizations: res.data })
+            })
     }
 
     render() {
         let orgList = this.state.organizations.map((organization) => {
             return (
                 <Link to={`organizations/${organization.id}`}>
-                    <div>
+                    <div className='org-list'>
                         {organization.org_name}
-                    
+
                     </div>
                 </Link>
             )
         })
         return (
             <div>
-                    <h1>This component should show all orgs</h1>
-                {orgList}
+                <h3>Currently participating organizations:</h3>
+                <div className='org-list'>
+                    {orgList}
+                </div>
             </div>
         )
     }

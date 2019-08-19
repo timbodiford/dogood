@@ -23,7 +23,7 @@ class Event(models.Model):
     location_state = models.CharField(max_length=2)
     location_zip = models.CharField(max_length=5)
     category = models.CharField(max_length=50)
-    org_name = models.ForeignKey(Organization, on_delete=models.CASCADE, related_name='events')
+    org_name = models.ForeignKey(Organization, on_delete=models.CASCADE, related_name='events', null=True, blank=True)
     # eventDate = models.DateField(default=timezone.now)
     # startTime = models.DateTimeField(default=datetime.now)
     # endTime = models.DateTimeField(default=datetime.now)

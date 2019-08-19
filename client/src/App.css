@@ -10,6 +10,11 @@
 }
 .sitename{
   padding: 0 20px;
+  font-size: 36px;
+  font-weight: bold;
+}
+.sitename:visited {
+  color: whitesmoke;
 }
 .nav-wrapper {
   display: flex;
@@ -21,14 +26,27 @@
   text-decoration: none;
   padding : 0px 20px;
 }
+a {
+  text-decoration: none;
+  margin: 20px
+}
 a .navlink {
   height: 30px;
   color: whitesmoke;
   text-decoration: none;
 }
+.link-for-tiles:visited {
+  color: whitesmoke;
+}
+div.org-list{
+  color: #0000EE;
+}
+.org-quote {
+  width: 100%;
+}
 
 .home-banner {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   position: absolute;
   left: 0px;
@@ -36,22 +54,64 @@ a .navlink {
   z-index: -1;
 }
 .banner-area{
+  /* display: flex; */
+  /* flex-direction: row; */
+}
+.banner-spacer {
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
   flex-direction: row;
-
+  justify-content: space-around;
+  flex-wrap: wrap;
+  
 }
 .home-tiles {
-  max-width: 350px;
+  margin: 50px 0 0 0 ;
+  width: 350px;
   height: 350px;
-  background: black ;
+  background: blue ;
   opacity: 0.7;
   color: whitesmoke;
   /* padding: 50px 0 0 0; */
   /* flex-direction: row; */
+  text-align: center;
 }
-/* .banner-spacer {
-  flex-direction: row;
+.link-for-tiles {
+  margin: 0 0 40px 0;
+}
 
-} */
+.footer-container{
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+  min-height: 200px;
+}
+.footer {
+    height: 200px;
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    color: whitesmoke;
+    background-color: blue;
+    justify-content: space-between;
+  }
+
+  .main-org-div{
+    display: flex;
+    flex-direction: row;
+
+    
+  }
+  .org-list{
+    text-decoration: none;
+  }
+  .form-toggle {
+    display: flex;
+    flex-direction: row;
+  }
+  div .vol-list:visited {
+    color: blue;
+  }
+
+  

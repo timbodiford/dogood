@@ -22,7 +22,7 @@ function App() {
     <div>
       <Router>
         <NavBar />
-        <Switch>
+        <Switch className="content">
           <Route exact path="/" component={Home} />
           {/* <Route path="organizations/:orgId/events/:eventId" component={ViewEvent} /> */}
           <Route path="/organizations/new" component={NewOrgForm} />

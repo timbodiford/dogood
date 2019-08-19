@@ -25,7 +25,9 @@ export default class MainVolunteer extends Component {
         }
         return (
             <div>
+                <div className="main-org-div">
                 <h1>This will be the main volunteer container</h1>
+                </div>
                 {
                     this.state.isNewVolunteerFormDisplayed
                         ?

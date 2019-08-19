@@ -24,7 +24,7 @@ export default class AllVolunteers extends Component {
         let volList = this.state.volunteers.map((volunteer) => {
             return (
                 <Link to={`volunteers/${volunteer.id}`}>
-                    <div>
+                    <div className='vol-list'>
                         {volunteer.name}
                     </div>
                 </Link>
@@ -32,8 +32,10 @@ export default class AllVolunteers extends Component {
         })
         return (
             <div>
-                <h2>This component should show all volunteers</h2>
-                {volList}
+                <h2 >This component should show all volunteers</h2>
+                <div className='vol-list'>
+                    {volList}
+                </div>
             </div>
         )
     }

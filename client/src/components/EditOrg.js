@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 
 export default class EditOrg extends Component {
+
+    state = {
+        organization: {}
+    }
+
+
     render() {
         return (
             <div>
