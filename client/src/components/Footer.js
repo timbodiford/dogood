@@ -7,7 +7,7 @@ export default class Footer extends Component {
                 <div className='content'>
 
                 </div>
-                <footer class="footer">
+                <footer className="footer">
                     <h4>This will be the footer</h4>
                 </footer>
             </div>

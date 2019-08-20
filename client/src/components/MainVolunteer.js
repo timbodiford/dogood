@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import NewOrgForm from './NewOrgForm';
 import AllVolunteers from './AllVolunteers';
 import NewVolunteer from './NewVolunteer';
 import { Redirect } from 'react-router-dom'

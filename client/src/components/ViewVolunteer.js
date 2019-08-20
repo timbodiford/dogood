@@ -3,7 +3,6 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
-import AllEvents from './AllEvents'
 
 
 
