@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
+import AllEvents from './AllEvents'
 
 
 
@@ -139,16 +140,23 @@ export default class ViewVolunteer extends Component {
                             <Link to="/volunteers">
                                 <button type="button">Back to Volunteers</button>
                             </Link>
-                            <div>
-                                <button type="button" onClick={this.handleToggleEditForm}>Edit Volunteer</button>
+                            <button type="button" onClick={this.handleToggleEditForm}>Edit Volunteer</button>
 
-                                <button onClick={this.handleDelete}>Delete This Volunteer</button>
-                            </div>
+                            <button onClick={this.handleDelete}>Delete This Volunteer</button>
                         </div>
                 }
                 <h4>Events you've signed up for:</h4>
                 {volEventList}
-
+                {/* {
+                    this.state.volunteer.events.eventId
+                        ?
+                        <div>
+                            <p>It looks like you haven't signed up for any events.  Click below to see all available volunteer events.</p>
+                            <AllEvents />
+                        </div>
+                        :
+                        { volEventList }
+                } */}
             </div>
         )
     }

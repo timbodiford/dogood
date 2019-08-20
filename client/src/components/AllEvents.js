@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom'
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import { width } from '@material-ui/system';
 
 
 export default class AllEvents extends Component {
@@ -23,35 +29,28 @@ export default class AllEvents extends Component {
     render() {
         let eventList = this.state.events.map((event) => {
             return (
-                <Link to={`events/${event.id}`}>
-                    <div>
-                        {event.title}
-                    </div>
-                </Link>
-                            //     <Link to={`organizations/${organization.id}`}>
-                            //     <div className='org-list'>
-            
-                            //     </div>
-                            //     <Card >
-                            //     <CardContent>
-             
-                            //       <Typography variant="h5" component="h2">
-                            //       {organization.org_name}
-                            //       </Typography>
-                            //       <Typography  color="textSecondary">
-                            //       {organization.contact_person}
-                            //       </Typography>
-                            //       <Typography variant="body2" component="p">
-                            //         well meaning and kindly.
-                            //         <br />
-                            //         {'"a benevolent smile"'}
-                            //       </Typography>
-                            //     </CardContent>
-                            //     <CardActions>
-                            //       <Button size="small">Learn More</Button>
-                            //     </CardActions>
-                            //   </Card>
-                            //   </Link>
+
+                <div className='org-list'>
+                    <Link to={`events/${event.id}`}>
+
+                        <Card style={{ maxWidth: 500 }}>
+                            <CardContent>
+
+                                <Typography variant="h5" component="h2">
+                                    {event.title}
+                                </Typography>
+                                <Typography color="textSecondary">
+                                    {event.description}
+                                </Typography>
+                                <Typography variant="body2" component="p">
+                                    {event.location_city}, {event.location_state} {event.location_zip}
+                                </Typography>
+
+                            </CardContent>
+
+                        </Card>
+                    </Link>
+                </div>
             )
         })
         return (

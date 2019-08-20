@@ -35,12 +35,16 @@ export default class ViewEvent extends Component {
             return <Redirect to={`/organizations`} />
         }
         return (
-            <div>
-                <h1>This component should show an individual event</h1>
+            <div className="view-one">
+                <h1>Event Details:</h1>
                 <h4>{this.state.event.title}</h4>
+                <p>{this.state.event.category}</p>
                 <p>{this.state.event.description}</p>
-                <Link to="/">
-                    <button type="button">Back to Home</button>
+                <p>{this.state.event.location_address}</p>
+                <p>{this.state.event.location_city}, {this.state.event.location_state}  {this.state.event.location_zip}</p>
+
+                <Link to="/events">
+                    <button type="button">Back to Events</button>
                 </Link>
                 <button onClick={this.handleDelete}>Delete Event</button>
 
