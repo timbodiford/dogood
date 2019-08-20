@@ -26,7 +26,7 @@ Trello Link
 
 ![Create Edit Org](https://github.com/timbodiford/dogood/blob/master/images/Part-SignUp.png)
 
-![CXreate Edit Volunteers] (https://github.com/timbodiford/dogood/blob/master/images/Part-SignUp.png)
+![Create Edit Volunteers](https://github.com/timbodiford/dogood/blob/master/images/Part-SignUp.png)
 
 ![View Add Events](https://github.com/timbodiford/dogood/blob/master/images/Part-SignUp.png)
 
@@ -37,11 +37,22 @@ Trello Link
 
 
 ## Future enhancements:
-TBD
+ * Add ability for Volunteers to sign-up for events, as well as remove themselves.  Can currently only associate volunteers to events through admin portal locally.
+ * Add ability for volunteer to SEARCH for events based on category keyword.
+ * Add ability to email a confirmation to the volunteer after successfully signing up for an event.
+ * For events added to a volunteer I can only pull in the id of the event.  Need to associate to event details to pull in other event data.
+ * Add the ability for the org to see which volunteers have signed up for each event.
+
   
 
 
 ## Technology used
-TBD
+* HTML
+* CSS
+* postgreSQL
+* REACT
+* Python
+* Django
+
 
 
