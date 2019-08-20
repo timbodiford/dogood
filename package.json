@@ -7,9 +7,5 @@
   "engines": {
     "node": "12.x"
   },
-  "dependencies": {
-    "@material-ui/core": "^4.3.2",
-    "react-responsive-carousel": "^3.1.50",
-    "typeface-roboto": "0.0.75"
-  }
+  "dependencies": {}
 }
