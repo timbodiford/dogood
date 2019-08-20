@@ -38,7 +38,7 @@ export default class MainOrg extends Component {
                         {
                             this.state.isNewOrgFormDisplayed
                                 ?
-                                <div>
+                                <div className='newformarea'>
                                 <NewOrgForm />
                                 <button onClick={this.handleHideNewForm}>Cancel</button>
                                 </div>
