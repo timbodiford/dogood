@@ -16,15 +16,19 @@ Trello Link
   * This is intended to be an app where Organizations can create profiles for their companies, and also create volunteer events.  Volunteers can create profiles and sign-up for the volunteer events.
 
 ## ERD
-![ERD](https://www.lucidchart.com/publicSegments/view/e686bd43-56bb-4259-83fe-219b2b02325f/image.jpeg)
+![ERD](https://github.com/timbodiford/dogood/blob/master/images/drawSQL-volunteer-site.png)
 
 
 ## Wireframes
-![Edit Form](https://github.com/timbodiford/rewards-site-project2/blob/master/Screen%20Shot%202019-07-29%20at%201.29.19%20PM.png)
+![Home](https://github.com/timbodiford/dogood/blob/master/images/Volunteer.png)
 
-![Users Form](https://github.com/timbodiford/rewards-site-project2/blob/master/Screen%20Shot%202019-07-29%20at%201.29.48%20PM.png)
+![Events](https://github.com/timbodiford/dogood/blob/master/images/Org%20Events.png)
 
-![Products Form](https://github.com/timbodiford/rewards-site-project2/blob/master/Screen%20Shot%202019-07-29%20at%201.30.03%20PM.png)
+![Create Edit Org](https://github.com/timbodiford/dogood/blob/master/images/Part-SignUp.png)
+
+![CXreate Edit Volunteers] (https://github.com/timbodiford/dogood/blob/master/images/Part-SignUp.png)
+
+![View Add Events](https://github.com/timbodiford/dogood/blob/master/images/Part-SignUp.png)
 
 
 
