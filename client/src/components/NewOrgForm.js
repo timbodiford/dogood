@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom'
 import ViewOrg from './ViewOrg';
+import Button from '@material-ui/core/Button';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
 
 export default class NewOrgForm extends Component {
     
@@ -35,27 +40,47 @@ export default class NewOrgForm extends Component {
         }
         return (
             <div>
-                <h2>Add New Organization</h2>
+                <h3>Add New Organization</h3>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <label htmlFor="org-name">Name of Organization: </label>
-                        <input type="text" name="org_name" id="org-name" onChange={this.handleChange} value={this.state.newOrg.org_name} />
-                    </div>
-                    <div>
-                        <label htmlFor="contact-person">Contact Name: </label>
-                        <input type="text" name="contact_person" id="contact-person" onChange={this.handleChange} value={this.state.newOrg.contact_person} />
-                    </div>
-                    <div>
-                        <label htmlFor="contact-phone">Phone #: </label>
-                        <input type="text" name="contact_phone" id="contact-phone" onChange={this.handleChange} value={this.state.newOrg.contact_phone} />
-                    </div>
-                    <div>
-                        <label htmlFor="contact-email">Email Address: </label>
-                        <input type="text" name="contact_email" id="contact-email" onChange={this.handleChange} value={this.state.newOrg.contact_email} />
-                    </div>
-
-                    <input type="submit" value="Create" />
+                    <TextField
+                        id="org_name"
+                        label="Name of Organization:"
+                        name="org_name"
+                        onChange={this.handleChange}
+                        value={this.state.newOrg.org_name}
+                        margin="normal"
+                        variant="outlined"
+                    />
+                    <TextField
+                        id="contact_person"
+                        label="Contact Name:"
+                        name="contact_person"
+                        onChange={this.handleChange}
+                        value={this.state.newOrg.contact_person}
+                        margin="normal"
+                        variant="outlined"
+                    />
+                    <TextField
+                        id="contact_phone"
+                        label="Phone #:"
+                        name="contact_phone"
+                        onChange={this.handleChange}
+                        value={this.state.newOrg.contact_phone}
+                        margin="normal"
+                        variant="outlined"
+                    />
+                    <TextField
+                        id="contact_email"
+                        label="Email Address:"
+                        name="contact_email"
+                        onChange={this.handleChange}
+                        value={this.state.newOrg.contact_email}
+                        margin="normal"
+                        variant="outlined"
+                    />
+                    {/* <Button variant="contained" type="submit">Add Prg</Button> */}
                 </form>
+                    <input type="submit" value="Add Org" />
 
             </div>
         )

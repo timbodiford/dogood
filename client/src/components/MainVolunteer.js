@@ -24,9 +24,14 @@ export default class MainVolunteer extends Component {
             return <Redirect to='/volunteers' />
         }
         return (
-            <div>
+            <div className="volwrapper">
+                <div className='org-quote'>
+                    <h3>"Add quote here"</h3>
+                    <h4> - From famous person</h4>
+                </div>
+                <h2>Volunteers</h2>
                 <div className="main-org-div">
-                <h1>This will be the main volunteer container</h1>
+                    <h3>This will be the main volunteer container</h3>
                 </div>
                 {
                     this.state.isNewVolunteerFormDisplayed
@@ -38,8 +43,9 @@ export default class MainVolunteer extends Component {
                             <button onClick={this.handleShowNewForm}>Create Volunteer</button>
                             <AllVolunteers />
                         </div>
-                }
+
+                            }
             </div>
         )
-    }
-}
+                }
+            }

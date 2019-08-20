@@ -28,6 +28,30 @@ export default class AllEvents extends Component {
                         {event.title}
                     </div>
                 </Link>
+                            //     <Link to={`organizations/${organization.id}`}>
+                            //     <div className='org-list'>
+            
+                            //     </div>
+                            //     <Card >
+                            //     <CardContent>
+             
+                            //       <Typography variant="h5" component="h2">
+                            //       {organization.org_name}
+                            //       </Typography>
+                            //       <Typography  color="textSecondary">
+                            //       {organization.contact_person}
+                            //       </Typography>
+                            //       <Typography variant="body2" component="p">
+                            //         well meaning and kindly.
+                            //         <br />
+                            //         {'"a benevolent smile"'}
+                            //       </Typography>
+                            //     </CardContent>
+                            //     <CardActions>
+                            //       <Button size="small">Learn More</Button>
+                            //     </CardActions>
+                            //   </Card>
+                            //   </Link>
             )
         })
         return (

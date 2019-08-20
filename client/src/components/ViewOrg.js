@@ -56,7 +56,7 @@ export default class ViewOrg extends Component {
     handleEdit = (event) => {
         event.preventDefault()
 
-        axios.put(`/api/v1/organizations/${this.state.organization.id}`, this.state.organization)
+        axios.put(`/api/v1/organizations/${this.state.organization.id}/`, this.state.organization)
             .then((res) => {
                 this.setState({
                     isEditOrgFormDisplayed: false
@@ -117,6 +117,7 @@ export default class ViewOrg extends Component {
                             <Link to="/organizations">
                                 <button type="button">Back to Organizations</button>
                             </Link>
+                            <button type="button" onClick={this.handleToggleEditForm}>Edit Organization</button>
                             <button onClick={this.handleDelete}>Delete Organization</button>
 
                         </div>

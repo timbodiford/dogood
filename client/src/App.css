@@ -8,6 +8,11 @@
   background-color: blue;
   justify-content: space-between;
 }
+button, input {
+  font-size: 14px;
+  background: blue;
+  color: white;
+}
 .sitename{
   padding: 0 20px;
   font-size: 36px;
@@ -41,8 +46,10 @@ a .navlink {
 div.org-list{
   color: #0000EE;
 }
-.org-quote {
+div.org-quote {
   width: 100%;
+  justify-content: center;
+  margin: 30px;
 }
 
 .home-banner {
@@ -62,10 +69,13 @@ div.org-list{
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin: 60px 0 0 0 ;
+  font-weight: bold;
+
+
   
 }
 .home-tiles {
-  margin: 50px 0 0 0 ;
   width: 350px;
   height: 350px;
   background: blue ;
@@ -100,6 +110,8 @@ div.org-list{
   .main-org-div{
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
+
 
     
   }
@@ -109,9 +121,15 @@ div.org-list{
   .form-toggle {
     display: flex;
     flex-direction: row;
+    margin: 0 0 0 30px;
+    align-items: flex-start;
+    width: 350px;
+
   }
   div .vol-list:visited {
     color: blue;
   }
 
-  
+  .volwrapper {
+    margin: 0 0 0 30px;
+  }

@@ -27,34 +27,36 @@ export default class MainOrg extends Component {
             return <Redirect to='/organizations' />
         }
         return (
-            <div>
+            <div className='volwrapper'>
                 <div className='org-quote'>
                     <h3>"Life's most persistent and urgent question is, what are you doing for others?"</h3>
-                    <h4>- Martin Luther King, Jr.</h4>
+                    <h4> - Martin Luther King, Jr.</h4>
                 </div>
+                <h2>Organizations</h2>
                 <div className="main-org-div">
                     <div className='form-toggle'>
                         {
                             this.state.isNewOrgFormDisplayed
                                 ?
+                                <div>
                                 <NewOrgForm />
-
+                                <button onClick={this.handleHideNewForm}>Cancel</button>
+                                </div>
                                 :
                                 <div className='create-org-button'>
 
                                     {/* <div> */}
-                                    <p>Click here to add a new org</p>
+                                    <h3>Add your organization</h3>
                                     <button onClick={this.handleShowNewForm}>Create an Organization</button>
                                     {/* </div> */}
                                 </div>
                         }
                     </div>
 
-                </div>
                 <div>
-                <button onClick={this.handleHideNewForm}>Cancel</button>
                 </div>
                 <AllOrgs />
+                </div>
             </div>
         )
     }
