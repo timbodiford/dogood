@@ -5,6 +5,11 @@ import OrgEvents from './OrgEvents'
 import NewEvent from './NewEvent'
 import { Redirect } from 'react-router-dom'
 import EditOrg from './EditOrg';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 
 
@@ -52,7 +57,7 @@ export default class ViewOrg extends Component {
     handleInputEdit = (event) => {
         const copiedOrganization = { ...this.state.organization }
         copiedOrganization[event.target.name] = event.target.value
-        this.setState({ organization : copiedOrganization })
+        this.setState({ organization: copiedOrganization })
     }
 
     handleEdit = (event) => {
@@ -66,7 +71,7 @@ export default class ViewOrg extends Component {
 
             })
     }
- 
+
 
     render() {
         if (this.state.redirectToHome) {
@@ -76,76 +81,91 @@ export default class ViewOrg extends Component {
         let eventList = this.state.organization.events.map((event) => {
             return (
                 <Link to={`/events/${event.id}`}>
-                    <div>
-                        {event.title}
-                    </div>
-                </Link>
-            )
-        })
 
-        let org = this.state.organization
+                    <Card style={{ maxWidth: 300 }}>
+                        <CardContent>
 
-        return (
+                            <Typography variant="h5" component="h2">
+                                {event.title}
+                            </Typography>
+                            <Typography color="textSecondary">
+                                {event.description}
+                            </Typography>
+                            <Typography variant="body2" component="p">
+                                {event.location_city}
+                            </Typography>
+                        </CardContent>
+                        {/* <CardActions>
+              <Button size="small">Learn More</Button>
+            </CardActions> */}
+                    </Card>
+            </Link>
+
+                    )
+                })
+        
+                let org = this.state.organization
+        
+                return (
             <div>
-                {
-                    this.state.isEditOrgFormDisplayed
-                        ?
-                        <form onSubmit={this.handleEdit}>
-                        <div>
-                            <label htmlFor="org-name">Name of Organization: </label>
-                            <input type="text" name="org_name" id="org-name" onChange={this.handleInputEdit} value={this.state.organization.org_name} />
-                        </div>
-                        <div>
-                            <label htmlFor="contact-person">Contact Name: </label>
-                            <input type="text" name="contact_person" id="contact-person" onChange={this.handleInputEdit} value={this.state.organization.contact_person} />
-                        </div>
-                        <div>
-                            <label htmlFor="contact-phone">Phone #: </label>
-                            <input type="text" name="contact_phone" id="contact-phone" onChange={this.handleInputEdit} value={this.state.organization.contact_phone} />
-                        </div>
-                        <div>
-                            <label htmlFor="contact-email">Email Address: </label>
-                            <input type="text" name="contact_email" id="contact-email" onChange={this.handleInputEdit} value={this.state.organization.contact_email} />
-                        </div>
-    
-                        <input type="submit" value="Save Changes" />
-                    </form>                      
-                      :
+                        {
+                            this.state.isEditOrgFormDisplayed
+                                ?
+                                <form onSubmit={this.handleEdit}>
+                                    <div>
+                                        <label htmlFor="org-name">Name of Organization: </label>
+                                        <input type="text" name="org_name" id="org-name" onChange={this.handleInputEdit} value={this.state.organization.org_name} />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="contact-person">Contact Name: </label>
+                                        <input type="text" name="contact_person" id="contact-person" onChange={this.handleInputEdit} value={this.state.organization.contact_person} />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="contact-phone">Phone #: </label>
+                                        <input type="text" name="contact_phone" id="contact-phone" onChange={this.handleInputEdit} value={this.state.organization.contact_phone} />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="contact-email">Email Address: </label>
+                                        <input type="text" name="contact_email" id="contact-email" onChange={this.handleInputEdit} value={this.state.organization.contact_email} />
+                                    </div>
+
+                                    <input type="submit" value="Save Changes" />
+                                </form>
+                                :
+                                <div className='view-one'>
+                                    <h3>Organization Information</h3>
+                                    <h4>{this.state.organization.org_name}</h4>
+                                    <h4> {this.state.organization.contact_person}</h4>
+                                    <h4>{this.state.organization.contact_phone}</h4>
+                                    <h4>{this.state.organization.contact_email}</h4>
+                                    <Link to="/organizations">
+                                        <button type="button">Back to Organizations</button>
+                                    </Link>
+                                    <button type="button" onClick={this.handleToggleEditForm}>Edit Organization</button>
+                                    <button onClick={this.handleDelete}>Delete Organization</button>
+
+                                </div>
+                        }
                         <div className='view-one'>
-                            <h3>Organization Information</h3>
-                            <h4>{this.state.organization.org_name}</h4>
-                            <h4> {this.state.organization.contact_person}</h4>
-                            <h4>{this.state.organization.contact_phone}</h4>
-                            <h4>{this.state.organization.contact_email}</h4>
-                            <Link to="/organizations">
-                                <button type="button">Back to Organizations</button>
-                            </Link>
-                            <button type="button" onClick={this.handleToggleEditForm}>Edit Organization</button>
-                            <button onClick={this.handleDelete}>Delete Organization</button>
+                            <h3>Events you've created</h3>
+                            {eventList}
 
+                            {
+                                this.state.isNewEventFormDisplayed
+                                    ?
+                                    <div>
+                                        <NewEvent org={org} />
+
+                                        <button onClick={this.hideNewEventForm}>Cancel</button>
+                                    </div>
+                                    :
+                                    <div>
+                                        <button onClick={this.handleShowNewForm}>Add Event</button>
+
+                                    </div>
+                            }
                         </div>
+                    </div>
+                    )
                 }
-            <div className='view-one'>
-                <h3>Events you've created</h3>
-                {eventList}
-
-                Adding ternary below here for new event form...
-                {
-                    this.state.isNewEventFormDisplayed
-                        ?
-                        <div>
-                        <NewEvent org={org} />
-
-                        <button onClick={this.hideNewEventForm}>Cancel</button>
-                        </div>
-                        :
-                        <div>
-                            <button onClick={this.handleShowNewForm}>Add Event</button>
-
-                        </div>
-                }
-                </div>
-            </div>
-        )
-    }
 }
