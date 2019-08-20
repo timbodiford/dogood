@@ -12,6 +12,9 @@ button, input {
   font-size: 14px;
   background: blue;
   color: white;
+  width: 150px;
+  margin: 10px;
+  align-items: center
 }
 .sitename{
   padding: 0 20px;
@@ -123,7 +126,7 @@ div.org-quote {
     flex-direction: row;
     margin: 0 0 0 30px;
     align-items: flex-start;
-    width: 350px;
+    min-width: ;width: 350px;
 
   }
   div .vol-list:visited {
@@ -131,5 +134,9 @@ div.org-quote {
   }
 
   .volwrapper {
+    margin: 0 0 0 30px;
+  }
+
+  .view-one {
     margin: 0 0 0 30px;
   }

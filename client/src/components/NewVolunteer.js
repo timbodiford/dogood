@@ -42,7 +42,7 @@ export default class NewVolunteer extends Component {
         return (
             <div >
                 {/* <h2>This component hould show the form to create a new volunteer</h2> */}
-                <form onSubmit={this.handleSubmit} style={{maxWidth: 500, display: 'flex', flexDirection: 'column'}}>
+                <form onSubmit={this.handleSubmit} style={{minWidth: 300, display: 'flex', flexDirection: 'column'}}>
                     <TextField
                         id="name"
                         label="Volunteer Name:"

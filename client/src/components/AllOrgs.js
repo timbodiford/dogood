@@ -28,30 +28,30 @@ export default class AllOrgs extends Component {
         let orgList = this.state.organizations.map((organization) => {
             return (
                 <div>
-                <Link to={`organizations/${organization.id}`}>
-                    <div className='org-list'>
+                    <Link to={`organizations/${organization.id}`}>
+                        <div className='org-list'>
 
-                    </div>
-                    <Card style={{maxWidth: 300}}>
-                    <CardContent>
- 
-                      <Typography variant="h5" component="h2">
-                      {organization.org_name}
-                      </Typography>
-                      <Typography  color="textSecondary">
-                      {organization.contact_person}
-                      </Typography>
-                      <Typography variant="body2" component="p">
-                        {organization.contact_phone}
-                      </Typography>
-                    </CardContent>
-                    {/* <CardActions>
+                            <Card style={{ maxWidth: 300 }}>
+                                <CardContent>
+
+                                    <Typography variant="h5" component="h2">
+                                        {organization.org_name}
+                                    </Typography>
+                                    <Typography color="textSecondary">
+                                        {organization.contact_person}
+                                    </Typography>
+                                    <Typography variant="body2" component="p">
+                                        {organization.contact_phone}
+                                    </Typography>
+                                </CardContent>
+                                {/* <CardActions>
                       <Button size="small">Learn More</Button>
                     </CardActions> */}
-                  </Card>
-                  </Link>
+                            </Card>
+                        </div>
+                    </Link>
 
-                  </div>
+                </div>
             )
         })
         return (

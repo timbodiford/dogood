@@ -2,14 +2,18 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
+import TextField from '@material-ui/core/TextField';
+
 
 
 export default class ViewVolunteer extends Component {
 
     state = {
         volunteer: {
-            events:[]
-        }
+            events: []
+        },
+        isEditVolFormDisplayed: false,
+        redirectToHome: false
     }
 
     componentDidMount() {
@@ -22,6 +26,10 @@ export default class ViewVolunteer extends Component {
                 this.setState({ volunteer: res.data })
             })
     }
+    handleShowNewForm = (evt) => {
+        this.setState({ isNewEventFormDisplayed: true })
+    }
+
 
     handleDelete = () => {
         axios.delete(`/api/v1/volunteers/${this.state.volunteer.id}/`)
@@ -29,35 +37,116 @@ export default class ViewVolunteer extends Component {
                 this.setState({ redirectToHome: true })
             })
     }
+    handleToggleEditForm = () => {
+        this.setState((state) => {
+            return { isEditVolFormDisplayed: !state.isEditVolFormDisplayed }
+        })
+    }
+    handleInputEdit = (event) => {
+        const copiedVolunteer = { ...this.state.volunteer }
+        copiedVolunteer[event.target.name] = event.target.value
+        this.setState({ volunteer: copiedVolunteer })
+    }
+
+    handleEdit = (event) => {
+        event.preventDefault()
+
+        axios.put(`/api/v1/volunteers/${this.state.volunteer.id}/`, this.state.volunteer)
+            .then((res) => {
+                this.setState({
+                    isEditVolFormDisplayed: false
+                })
+
+            })
+    }
 
     render() {
         if (this.state.redirectToHome) {
             return <Redirect to={`/volunteers`} />
         }
-// Do I use this list of event ids in conjunction with another axios call to get the details for each of these ids?
+        // Do I use this list of event ids in conjunction with another axios call to get the details for each of these ids?
         let volEventList = this.state.volunteer.events.map((eventId) => {
             return (
-                    <div>
-                        {eventId}
-                    </div>
+                <div>
+                    {eventId}
+                </div>
             )
         })
         return (
             <div>
-                <h1>This component should show a single volunteer</h1>
-                <h4>{this.state.volunteer.name}</h4>
-                <p>{this.state.volunteer.address}</p>
-                <p>{this.state.volunteer.city}</p>
-                <p>{this.state.volunteer.state}</p>
-                <p>{this.state.volunteer.zip_code}</p>
-                {/* <p>{}</p> */}
-                <Link to="/volunteers">
-                    <button type="button">Back to Volunteers</button>
-                </Link>
-                <div>
-                    <button onClick={this.handleDelete}>Delete This Volunteer</button>
-                </div>
-                <h4>Trying to make events specific to volunteer id show here</h4>
+                {
+                    this.state.isEditVolFormDisplayed
+                        ?
+                        <form onSubmit={this.handleEdit}>
+                            <TextField
+                                id="name"
+                                label="Name:"
+                                name="name"
+                                onChange={this.handleInputEdit}
+                                value={this.state.volunteer.name}
+                                margin="normal"
+                                variant="outlined"
+                            />
+                            <TextField
+                                id="address"
+                                label="Address:"
+                                name="address"
+                                onChange={this.handleInputEdit}
+                                value={this.state.volunteer.address}
+                                margin="normal"
+                                variant="outlined"
+                            />
+                            <TextField
+                                id="city"
+                                label="City:"
+                                name="city"
+                                onChange={this.handleInputEdit}
+                                value={this.state.volunteer.city}
+                                margin="normal"
+                                variant="outlined"
+                            />
+                            <TextField
+                                id="state"
+                                label="State:"
+                                name="state"
+                                onChange={this.handleInputEdit}
+                                value={this.state.volunteer.state}
+                                margin="normal"
+                                variant="outlined"
+                            />
+                            <TextField
+                                id="zip_code"
+                                label="Zip:"
+                                name="zip_code"
+                                onChange={this.handleInputEdit}
+                                value={this.state.volunteer.zip_code}
+                                margin="normal"
+                                variant="outlined"
+                            />
+
+                            <input type="submit" value="Edit Volunteer" />
+                        </form>
+
+                        :
+                        <div className="view-one">
+                            <h1>Volunteer's Information</h1>
+                            <h4>Name: {this.state.volunteer.name}</h4>
+                            <p>Address: {this.state.volunteer.address}</p>
+                            <p>City: {this.state.volunteer.city}</p>
+                            <p> State: {this.state.volunteer.state}</p>
+                            <p>Zip Code: {this.state.volunteer.zip_code}</p>
+                            {/* <p>{}</p> */}
+                            <Link to="/volunteers">
+                                <button type="button">Back to Volunteers</button>
+                            </Link>
+                            <div>
+                                <button type="button" onClick={this.handleToggleEditForm}>Edit Volunteer</button>
+
+                                <button onClick={this.handleDelete}>Delete This Volunteer</button>
+                            </div>
+                        </div>
+                }
+                <h4>Events you've signed up for:</h4>
                 {volEventList}
 
             </div>

@@ -26,26 +26,30 @@ export default class MainVolunteer extends Component {
         return (
             <div className="volwrapper">
                 <div className='org-quote'>
-                    <h3>"Add quote here"</h3>
-                    <h4> - From famous person</h4>
+                    <h3>“Service to others is the rent you pay for your room here on Earth.”</h3>
+                    <h4> - Muhammad Ali</h4>
                 </div>
                 <h2>Volunteers</h2>
                 <div className="main-org-div">
-                    <h3>This will be the main volunteer container</h3>
-                </div>
-                {
-                    this.state.isNewVolunteerFormDisplayed
-                        ?
-                        <NewVolunteer />
-                        :
-                        <div>
-                            <p>Click here to create a new Volunteer</p>
-                            <button onClick={this.handleShowNewForm}>Create Volunteer</button>
-                            <AllVolunteers />
-                        </div>
+                    <div className="form-toggle">
+                        {
+                            this.state.isNewVolunteerFormDisplayed
+                                ?
+                                <div className='newformarea'>
+                                <NewVolunteer />
+                                <button onClick={this.handleShowNewForm}>Cancel</button>
+                                </div>
+                                :
+                                <div className='create-org-button'>
+                                    <h3>Click here to create a new Volunteer</h3>
+                                    <button onClick={this.handleShowNewForm}>Create Volunteer</button>
+                                </div>
 
-                            }
-            </div>
+                        }
+                    </div>
+                <AllVolunteers />
+                </div>
+                        </div>
         )
-                }
-            }
+    }
+}

@@ -107,8 +107,9 @@ export default class ViewOrg extends Component {
                         </div>
     
                         <input type="submit" value="Save Changes" />
-                    </form>                        :
-                        <div>
+                    </form>                      
+                      :
+                        <div className='view-one'>
                             <h3>Organization Information</h3>
                             <h4>{this.state.organization.org_name}</h4>
                             <h4> {this.state.organization.contact_person}</h4>

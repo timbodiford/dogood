@@ -44,17 +44,13 @@ export default class MainOrg extends Component {
                                 </div>
                                 :
                                 <div className='create-org-button'>
-
-                                    {/* <div> */}
                                     <h3>Add your organization</h3>
                                     <button onClick={this.handleShowNewForm}>Create an Organization</button>
-                                    {/* </div> */}
                                 </div>
                         }
                     </div>
 
-                <div>
-                </div>
+
                 <AllOrgs />
                 </div>
             </div>
