@@ -17,7 +17,9 @@ export default class ViewOrg extends Component {
         },
         isNewEventFormDisplayed: false,
         isEditOrgFormDisplayed: false,
-        redirectToHome: false
+        redirectToHome: false,
+        hideNewEventForm: true
+
 
     }
 
@@ -123,21 +125,26 @@ export default class ViewOrg extends Component {
 
                         </div>
                 }
-
-                <h3>This is a list of event for this org</h3>
+            <div className='view-one'>
+                <h3>Events you've created</h3>
                 {eventList}
 
                 Adding ternary below here for new event form...
                 {
                     this.state.isNewEventFormDisplayed
                         ?
+                        <div>
                         <NewEvent org={org} />
 
+                        <button onClick={this.hideNewEventForm}>Cancel</button>
+                        </div>
                         :
                         <div>
-                            <button onClick={this.handleShowNewForm}>Create an Event</button>
+                            <button onClick={this.handleShowNewForm}>Add Event</button>
+
                         </div>
                 }
+                </div>
             </div>
         )
     }

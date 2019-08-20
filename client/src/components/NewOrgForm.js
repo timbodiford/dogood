@@ -36,10 +36,10 @@ export default class NewOrgForm extends Component {
 
     render() {
         if(this.state.redirectToHome) {
-        return <Redirect to={<ViewOrg />} />
+        return <Redirect to='/organizations'/>
         }
         return (
-            <div>
+            <div className='formboxes'>
                 <h3>Add New Organization</h3>
                 <form onSubmit={this.handleSubmit}>
                     <TextField
@@ -79,8 +79,8 @@ export default class NewOrgForm extends Component {
                         variant="outlined"
                     />
                     {/* <Button variant="contained" type="submit">Add Prg</Button> */}
-                </form>
                     <input type="submit" value="Add Org" />
+                </form>
 
             </div>
         )

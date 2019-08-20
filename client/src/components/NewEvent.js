@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import TextField from '@material-ui/core/TextField';
+
 
 export default class NewEvent extends Component {
 
@@ -38,39 +40,87 @@ export default class NewEvent extends Component {
             return <Redirect to="/" />
         }
         return (
-            <div>
+            <div >
                 <h1>Add A New Event</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <label htmlFor="title">Name of Event: </label>
-                        <input type="text" name="title" id="Title" onChange={this.handleChange} value={this.state.newEvent.title} />
+                        <TextField
+                            id="title"
+                            label="Event Name:"
+                            name="title"
+                            onChange={this.handleChange}
+                            value={this.state.newEvent.title}
+                            margin="normal"
+                            variant="outlined"
+                        /></div>
+                    <div>
+                        <TextField
+                            id="description"
+                            label="Event Description:"
+                            name="description"
+                            onChange={this.handleChange}
+                            value={this.state.newEvent.description}
+                            margin="normal"
+                            variant="outlined"
+                        />
                     </div>
                     <div>
-                        <label htmlFor="description">Event Description: </label>
-                        <input type="text" name="description" id="description" onChange={this.handleChange} value={this.state.newEvent.description} />
+                        <TextField
+                            id="location_address"
+                            label="Address:"
+                            name="location_address"
+                            onChange={this.handleChange}
+                            value={this.state.newEvent.location_address}
+                            margin="normal"
+                            variant="outlined"
+                        />
                     </div>
                     <div>
-                        <label htmlFor="location-address">Event Address: </label>
-                        <input type="text" name="location_address" id="location-address" onChange={this.handleChange} value={this.state.newEvent.location_address} />
+                        <TextField
+                            id="location_city"
+                            label="City:"
+                            name="location_city"
+                            onChange={this.handleChange}
+                            value={this.state.newEvent.location_city}
+                            margin="normal"
+                            variant="outlined"
+                        />
                     </div>
                     <div>
-                        <label htmlFor="location-city">City: </label>
-                        <input type="text" name="location_city" id="location-city" onChange={this.handleChange} value={this.state.newEvent.location_city} />
+                        <TextField
+                            id="location_state"
+                            label="State:"
+                            name="location_state"
+                            onChange={this.handleChange}
+                            value={this.state.newEvent.location_state}
+                            margin="normal"
+                            variant="outlined"
+                        />
                     </div>
                     <div>
-                        <label htmlFor="location-state">State: </label>
-                        <input type="text" name="location_state" id="location-state" onChange={this.handleChange} value={this.state.newEvent.location_state} />
+                        <TextField
+                            id="location_zip"
+                            label="Zip:"
+                            name="location_zip"
+                            onChange={this.handleChange}
+                            value={this.state.newEvent.location_zip}
+                            margin="normal"
+                            variant="outlined"
+                        />
                     </div>
                     <div>
-                        <label htmlFor="location-zip">Zip Code: </label>
-                        <input type="text" name="location_zip" id="location-zip" onChange={this.handleChange} value={this.state.newEvent.location_zip} />
-                    </div>
-                    <div>
-                        <label htmlFor="category">Category: </label>
-                        <input type="text" name="category" id="category" onChange={this.handleChange} value={this.state.newEvent.category} />
+                        <TextField
+                            id="category"
+                            label="Category:"
+                            name="category"
+                            onChange={this.handleChange}
+                            value={this.state.newEvent.category}
+                            margin="normal"
+                            variant="outlined"
+                        />
                     </div>
 
-                    <input type="submit" value="Create" />
+                    <input type="submit" value="Create Event" />
                 </form>
             </div>
         )

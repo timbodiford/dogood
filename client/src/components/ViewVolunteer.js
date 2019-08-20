@@ -74,11 +74,12 @@ export default class ViewVolunteer extends Component {
             )
         })
         return (
-            <div>
+            <div className='view-one'>
                 {
                     this.state.isEditVolFormDisplayed
                         ?
                         <form onSubmit={this.handleEdit}>
+                            <div>
                             <TextField
                                 id="name"
                                 label="Name:"
@@ -88,6 +89,8 @@ export default class ViewVolunteer extends Component {
                                 margin="normal"
                                 variant="outlined"
                             />
+                            </div>
+                            <div>
                             <TextField
                                 id="address"
                                 label="Address:"
@@ -97,6 +100,8 @@ export default class ViewVolunteer extends Component {
                                 margin="normal"
                                 variant="outlined"
                             />
+                            </div>
+                            <div>
                             <TextField
                                 id="city"
                                 label="City:"
@@ -106,6 +111,8 @@ export default class ViewVolunteer extends Component {
                                 margin="normal"
                                 variant="outlined"
                             />
+                            </div>
+                            <div>
                             <TextField
                                 id="state"
                                 label="State:"
@@ -115,6 +122,8 @@ export default class ViewVolunteer extends Component {
                                 margin="normal"
                                 variant="outlined"
                             />
+                            </div>
+                            <div>
                             <TextField
                                 id="zip_code"
                                 label="Zip:"
@@ -124,6 +133,7 @@ export default class ViewVolunteer extends Component {
                                 margin="normal"
                                 variant="outlined"
                             />
+                            </div>
 
                             <input type="submit" value="Edit Volunteer" />
                         </form>
